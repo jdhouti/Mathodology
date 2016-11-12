@@ -25,6 +25,13 @@ def sum(n1, n2):
 
     return n1 + n2
 
+def sum_up_to(n):
+    if n == 0:
+        return 0
+
+    else:
+        return n + sum_up_to(n)
+
 def prod(n1, n2):
     """Returns the product of two given numbers."""
 
