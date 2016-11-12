@@ -104,4 +104,12 @@ def sum_cubes(n):
 
     return total
 
+def is_dec(n):
+    """Checks if a given number is a decimal or not."""
+    if n % 1 == 0:
+        return False
+
+    else:
+        return True
+
 PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640
