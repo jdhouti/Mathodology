@@ -226,5 +226,17 @@ def list_is_palindrome(l, s = 0, e = -1):
 
     return list_is_palindrome(l, s + 1, e - 1)
 
-print False == list_is_palindrome([1,2,3,1])
-print True == list_is_palindrome([2,3,3,3,2])
+# this is higher order function
+def list_convert(l1, func):
+    """Applies a function to every element in a given numerical function."""
+    i, newList = 0, []
+
+    try:
+        while i < len(l1):
+            newList.append(func(l1[i]))
+            i += 1
+
+        return newList
+
+    except:
+        return "Given function cannot be applied to an integer!"
