@@ -11,6 +11,7 @@ def is_true(b):
 
 def bool_not(b):
     """Returns True if given bool is False, returns False if otherwise."""
+    """This function is identical to the not function."""
     if b:
         return False
 
@@ -19,12 +20,10 @@ def bool_not(b):
 
 def bool_true(b):
     """Returns True regardless of given bool."""
-
     return True
 
 def bool_false(b):
     """Returns False regardless of given bool."""
-
     return False
 
 def bool_and(b1, b2):
@@ -56,7 +55,7 @@ def bool_xor(b1, b2):
         return True
 
 # this function is the same as:
-#       not bool_xor(b1, b2)
+#         not bool_xor(b1, b2)
 def bool_equiv(b1, b2):
     """If booleans are identical, returns True, returns False if otherwise."""
     if b1 == b2:
