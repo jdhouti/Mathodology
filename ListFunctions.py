@@ -240,3 +240,14 @@ def list_convert(l1, func):
 
     except:
         return "Given function cannot be applied to an integer!"
+
+def append_list(l1, l2):
+    """Appends a given numerical list to another numerical list."""
+    """This function will not return a list within a list."""
+    i = 0
+
+    while i != len(l2):
+        l1.append(l2[i])
+        i += 1
+
+    return l1
