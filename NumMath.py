@@ -3,6 +3,59 @@
 # This script is a class of math functions re-written my way.
 
 import math
+import time
+
+# not really a math function.
+def whichIsFaster(func1, func2):
+    z = 0
+    f1, f2 = 0, 0
+
+    while z < 101:
+        x, y = 0, 0
+        firstFuncT, secondFuncT = 0, 0
+
+        # calculate speed for first function
+        while x < 101:
+            start = time.time()
+            func1
+            end = time.time()
+
+            x += 1
+            firstFuncT += (end - start)
+
+        firstFuncT = firstFuncT / 100.0
+
+        #calculate the speed for the second function
+        while y < 101:
+            start = time.time()
+            func2
+            end = time.time()
+
+            y += 1
+            secondFuncT += (end - start)
+
+        secondFuncT = secondFuncT / 100.0
+
+        if firstFuncT < secondFuncT:
+            f1 += 1
+
+        elif secondFuncT < firstFuncT:
+            f2 += 1
+
+        else:
+            pass
+
+        z += 1
+
+    # determine which was faster
+    if distance(f1, f2) <= 15:
+        return "Both functions were equally fast.", "Speed >> " + str(firstFuncT)
+
+    elif f1 > f2:
+        return "First function was faster.", "Speed >> " + str(firstFuncT)
+
+    else:
+        return "Second function was faster.", "Speed >> " + str(secondFuncT)
 
 def factorial(number):
     """Finds the factorial of a given number."""
@@ -11,6 +64,15 @@ def factorial(number):
 
     else:
         return number * (factorial(number - 1))
+
+def factorialTwo(x):
+    """A factorial function written a different way."""
+    u = x - 1
+
+    while u != 0:
+    	x = x * u
+    	u -= 1
+    return x
 
 def power(number, exponent):
     """Returns the power of a number given its power n."""
