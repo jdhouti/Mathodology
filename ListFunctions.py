@@ -2,7 +2,7 @@
 # Started: October 30, 2016
 # This script is a class of math functions applied to lists.
 
-import NumMath
+import NumMath as n
 import BoolFunctions
 
 # Will return the median in a function.
@@ -106,19 +106,19 @@ def list_combination(func, l1, l2):
 def list_mult_index(l1, l2):
     """Returns the product of each given index in two given numerical list, in one list."""
 
-    return list_combination(NumMath.prod, l1, l2)
+    return list_combination(n.prod, l1, l2)
 
 # This function uses a higher order function
 def list_sum_index(l1, l2):
     """Returns the sum of each given index in two given numerical list, in one list."""
 
-    return list_combination(NumMath.sum, l1, l2)
+    return list_combination(n.sum, l1, l2)
 
 # This function uses a higher order function
 def list_distance_index(l1, l2):
     """Returns the distance between each given index in two given numerical list, in one list."""
 
-    return list_combination(NumMath.distance, l1, l2)
+    return list_combination(n.distance, l1, l2)
 
 # This is a higher order function!
 # This will apply a certain math function to every element in a list.
@@ -138,19 +138,19 @@ def list_one_by_one(func, l, n):
 def list_inc(l, n):
     """Increments every element in a list by a given number."""
 
-    return list_one_by_one(NumMath.sum, l, n)
+    return list_one_by_one(n.sum, l, n)
 
 # Mutator method!
 def list_mult(l, n):
     """Multiplies every element in a given numerical list by a given number."""
 
-    return list_one_by_one(NumMath.prod, l, n)
+    return list_one_by_one(n.prod, l, n)
 
 # Mutator method!
 def list_dec(l, n):
     """Deducts a given amount from every element in a list."""
 
-    return list_one_by_one(NumMath.sub, l, n)
+    return list_one_by_one(n.sub, l, n)
 
 def list_eq(l1, l2):
     """Returns True if both given numerical lists are identical. False otherwise."""
@@ -166,7 +166,7 @@ def list_eq(l1, l2):
     return True
 
 def list_reverse(l):
-    """This function returns the reverse of any given numerical lists."""
+    """This function returns the reverse of any given lists."""
     i, tlist = -1, []
 
     try:
@@ -215,16 +215,23 @@ def all_even(l):
 
     return True
 
-# not working
-# fix
-def list_is_palindrome(l, s = 0, e = -1):
-    if s == e:
-        return True
+def list_is_palindrome(l):
+    if isinstance(l, basestring):
+        l = list(l)
 
-    if l[s] != l[e]:
-        return False
+    start, end = 0, -1
 
-    return list_is_palindrome(l, s + 1, e - 1)
+    while -(start + 1) != end or -(start + 1) == end:
+        try:
+            if l[start] == l[end]:
+                start += 1
+                end -= 1
+                pass
+            else:
+                return False
+        except:
+            return True
+    return True
 
 # this is higher order function
 def list_convert(l1, func):
@@ -235,7 +242,6 @@ def list_convert(l1, func):
         while i < len(l1):
             newList.append(func(l1[i]))
             i += 1
-
         return newList
 
     except:
@@ -249,5 +255,4 @@ def append_list(l1, l2):
     while i != len(l2):
         l1.append(l2[i])
         i += 1
-
     return l1
