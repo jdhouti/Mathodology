@@ -216,6 +216,7 @@ def all_even(l):
     return True
 
 def list_is_palindrome(l):
+    """Function that tests whether a given string or list (of any type) is a palindrome."""
     if isinstance(l, basestring):
         l = list(l)
 
