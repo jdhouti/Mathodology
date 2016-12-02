@@ -138,11 +138,24 @@ def list_dec(l, n):
 
 def list_eq(l1, l2):
     """Returns True if both given numerical lists are identical. False otherwise."""
-    k = 0
+    ## Version 1.0
+    # k = 0
+    #
+    # while k < len(l1):
+    #     if l1[k] == l2[k]:
+    #         k += 1
+    #
+    #     else:
+    #         return False
+    # return True
 
-    while k < len(l1):
-        if l1[k] == l2[k]:
-            k += 1
+    ## Version 2.0
+    if len(l1) != len(l2):
+        return False
+
+    for i in range(0, len(l1)):
+        if l1[i] == l2[i]:
+            pass
 
         else:
             return False
