@@ -13,12 +13,10 @@ def list_median(li):
     if len(li) % 2 == 0:                # If the length of the list is even,
         fHalf = li[:len(li) / 2]        # Obtain the first half
         sHalf = li[len(li) / 2:]        # and then the second half
-
         return (fHalf[-1] + sHalf[0]) / 2.0
 
     else:
         answer = li[:(len(li) / 2) + 1]
-
         return answer[-1]
 
 def list_sum(li, n = 0):
@@ -31,13 +29,11 @@ def list_sum(li, n = 0):
 
 def list_mean(li):
     """Returns the mean of all of the elements in a given numerical list."""
-
     return list_sum(li) / float(len(li))
 
 def list_range(li):
     """Returns the range of a given numerical list."""
     li.sort() # this is mutation
-
     return abs(li[-1] - li[0])
 
 def list_prod(li, n = 0):
@@ -54,7 +50,6 @@ def list_sum_square(li):
 
     for i in range(0, len(li)):
         newList.append(myMath.power(li[i], 2))
-
     return list_sum(newList)
 
 def list_square(li):
@@ -63,7 +58,6 @@ def list_square(li):
 
     for i in range(0, len(li)):
         newList.append(myMath.power(li[i], 2))
-
     return newList
 
 def list_filter_even(li):
@@ -73,7 +67,6 @@ def list_filter_even(li):
     for i in range(0, len(li)):
         if myMath.is_even(li[i]):
             newList.append(li[i])
-
     return newList
 
 def list_filter_True(li):
@@ -83,7 +76,6 @@ def list_filter_True(li):
     for i in range(0, len(li)):
         if BoolFunctions.is_true(li[i]):
             newList.append(li[i])
-
     return newList
 
 # This is a higher order function
@@ -96,7 +88,6 @@ def list_combination(func, l1, l2):
         for i in range(0, len(l1)):
             newList.append(func(l1[i], l2[c]))
             c += 1
-
         return newList
 
     except IndexError:
@@ -104,20 +95,17 @@ def list_combination(func, l1, l2):
 
 # This function uses a higher order function
 def list_mult_index(l1, l2):
-    """Returns the product of each given index in two given numerical list, in one list."""
-
+    """Returns the product of each given index in two given numerical list, in one list."""s
     return list_combination(n.prod, l1, l2)
 
 # This function uses a higher order function
 def list_sum_index(l1, l2):
     """Returns the sum of each given index in two given numerical list, in one list."""
-
     return list_combination(n.sum, l1, l2)
 
 # This function uses a higher order function
 def list_distance_index(l1, l2):
     """Returns the distance between each given index in two given numerical list, in one list."""
-
     return list_combination(n.distance, l1, l2)
 
 # This is a higher order function!
@@ -128,7 +116,6 @@ def list_one_by_one(func, l, n):
     try:
         for i in range(0, len(l)):
             newList.append(func(l[i], n))
-
         return newList
 
     except IndexError:
@@ -137,19 +124,16 @@ def list_one_by_one(func, l, n):
 # Mutator method!
 def list_inc(l, n):
     """Increments every element in a list by a given number."""
-
     return list_one_by_one(n.sum, l, n)
 
 # Mutator method!
 def list_mult(l, n):
     """Multiplies every element in a given numerical list by a given number."""
-
     return list_one_by_one(n.prod, l, n)
 
 # Mutator method!
 def list_dec(l, n):
     """Deducts a given amount from every element in a list."""
-
     return list_one_by_one(n.sub, l, n)
 
 def list_eq(l1, l2):
@@ -162,12 +146,10 @@ def list_eq(l1, l2):
 
         else:
             return False
-
     return True
 
 def list_reverse(l):
     """This function returns the reverse of any given lists."""
-
     ## Version 1.0
     # i, tlist = -1, []
     #
@@ -195,7 +177,6 @@ def list_range_by_to(start, dec, end):
     while c >= end:
         newList.append(c)
         c -= dec
-
     return newList
 
 def some_even(l):
@@ -208,7 +189,6 @@ def some_even(l):
 
         else:
             c += 1
-
     return False
 
 def all_even(l):
@@ -221,7 +201,6 @@ def all_even(l):
 
         else:
             return False
-
     return True
 
 def list_is_palindrome(l):
@@ -254,7 +233,6 @@ def list_convert(l1, func):
 
     for i in range(0, len(l1)):
         newList.append(func(l1[i]))
-
     return newList
 
 def append_lists(l1, l2):
@@ -273,5 +251,3 @@ def append_lists(l1, l2):
 
     l1.sort()
     return l1
-
-def
