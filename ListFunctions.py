@@ -237,31 +237,41 @@ def list_is_palindrome(l):
 # this is higher order function
 def list_convert(l1, func):
     """Applies a function to every element in a given numerical list."""
-    i, newList = 0, []
+    ## Version 1.0
+    # i, newList = 0, []
+    #
+    # try:
+    #     while i < len(l1):
+    #         newList.append(func(l1[i]))
+    #         i += 1
+    #     return newList
+    #
+    # except:
+    #     return "Given function cannot be applied to an integer!"
 
-    try:
-        while i < len(l1):
-            newList.append(func(l1[i]))
-            i += 1
-        return newList
+    ## Version 2.0
+    newList = []
 
-    except:
-        return "Given function cannot be applied to an integer!"
+    for i in range(0, len(l1)):
+        newList.append(func(l1[i]))
 
-def append_list(l1, l2):
+    return newList
+
+def append_lists(l1, l2):
     """Appends a given numerical list to another numerical list."""
     """This function will not return a list within a list."""
-    i = 0
+    ## Version 1.0
+    # i = 0
+    #
+    # while i != len(l2):
+    #     l1.append(l2[i])
+    #     i += 1
 
-    while i != len(l2):
-        l1.append(l2[i])
-        i += 1
-    return l1
-
-def list_add(l1, l2):
-    """Combines two given lists, numerical or not."""
+    ## Version 2.0
     for i in range(0, len(l2)):
         l1.append(l2[i])
 
     l1.sort()
     return l1
+
+def
