@@ -194,14 +194,24 @@ def list_range_by_to(start, dec, end):
 
 def some_even(l):
     """Checks if a numerical list contains any even numbers. Returns True if it does."""
-    c = 0
+    ## Version 1.0
+    # c = 0
+    #
+    # while c < len(l):
+    #     if l[c] % 2 == 0:
+    #         return True
+    #
+    #     else:
+    #         c += 1
+    # return False
 
-    while c < len(l):
-        if l[c] % 2 == 0:
+    ## Version 2.0
+    for i in range(0, len(l)):
+        if l[i] % 2 == 0:
             return True
 
         else:
-            c += 1
+            pass
     return False
 
 def all_even(l):
