@@ -167,17 +167,26 @@ def list_eq(l1, l2):
 
 def list_reverse(l):
     """This function returns the reverse of any given lists."""
-    i, tlist = -1, []
 
-    try:
-        while i >= -1 * len(l):
-            tlist.append(l[i])
-            i -= 1
+    ## Version 1.0
+    # i, tlist = -1, []
+    #
+    # try:
+    #     while i >= -1 * len(l):
+    #         tlist.append(l[i])
+    #         i -= 1
+    #
+    #     return tlist
+    #
+    # except IndexError:
+    #     return "Index Error!"
 
-        return tlist
+    ## Version 2.0
+    newList = []
 
-    except IndexError:
-        return "Index Error!"
+    for i in range(1, len(l) + 1):
+        newList.append(l[-i])
+    return newList
 
 def list_range_by_to(start, dec, end):
     """Returns a list of all items between end and start in intervals of dec. Decreasing order."""
@@ -217,21 +226,12 @@ def all_even(l):
 
 def list_is_palindrome(l):
     """Function that tests whether a given string or list (of any type) is a palindrome."""
-    if isinstance(l, basestring):
+    if isinstance(l, basestring):       # simply converts a string into a list
         l = list(l)
 
-    start, end = 0, -1
-
-    while -(start + 1) != end or -(start + 1) == end:
-        try:
-            if l[start] == l[end]:
-                start += 1
-                end -= 1
-                pass
-            else:
-                return False
-        except:
-            return True
+    for i in range(0, ((len(l) - 1) / 2) + 1):
+        if l[i] != l[-(i + 1)]:
+            return False
     return True
 
 # this is higher order function
