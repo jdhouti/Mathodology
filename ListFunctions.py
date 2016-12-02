@@ -206,11 +206,21 @@ def some_even(l):
 
 def all_even(l):
     """Checks if a numerical lists ONLY contains even numbers. Returns True if it does."""
-    c = 0
+    ## Version 1.0
+    # c = 0
+    #
+    # while c < len(l):
+    #     if l[c] % 2 == 0:
+    #         c += 1
+    #
+    #     else:
+    #         return False
+    # return True
 
-    while c < len(l):
-        if l[c] % 2 == 0:
-            c += 1
+    ## Version 2.0
+    for i in range(0, len(l)):
+        if l[i] % 2 == 0:
+            pass
 
         else:
             return False
