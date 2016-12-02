@@ -236,7 +236,7 @@ def list_is_palindrome(l):
 
 # this is higher order function
 def list_convert(l1, func):
-    """Applies a function to every element in a given numerical function."""
+    """Applies a function to every element in a given numerical list."""
     i, newList = 0, []
 
     try:
@@ -256,4 +256,12 @@ def append_list(l1, l2):
     while i != len(l2):
         l1.append(l2[i])
         i += 1
+    return l1
+
+def list_add(l1, l2):
+    """Combines two given lists, numerical or not."""
+    for i in range(0, len(l2)):
+        l1.append(l2[i])
+
+    l1.sort()
     return l1
