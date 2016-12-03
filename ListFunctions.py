@@ -291,7 +291,7 @@ def remove_smallest(l):
 
 def list_len(l):
     """Counts the length of a given list."""
-    length, i = 0, 0
+    length = 0
 
     for i in l:
         length += 1
