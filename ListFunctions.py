@@ -14,7 +14,6 @@ def list_median(li):
         fHalf = li[:len(li) / 2]        # Obtain the first half
         sHalf = li[len(li) / 2:]        # and then the second half
         return (fHalf[-1] + sHalf[0]) / 2.0
-
     else:
         answer = li[:(len(li) / 2) + 1]
         return answer[-1]
@@ -23,7 +22,6 @@ def list_sum(li, n = 0):
     """Return the sum of all elements in a given numerical list."""
     if n == len(li) - 1:
         return li[n]
-
     else:
         return li[n] + list_sum(li, n + 1)
 
@@ -40,7 +38,6 @@ def list_prod(li, n = 0):
     """Returns the product of every element in a given numerical list."""
     if n == len(li) - 1:
         return li[n]
-
     else:
         return li[n] * list_prod(li, n + 1)
 
@@ -89,13 +86,12 @@ def list_combination(func, l1, l2):
             newList.append(func(l1[i], l2[c]))
             c += 1
         return newList
-
     except IndexError:
         return "IndexError"
 
 # This function uses a higher order function
 def list_mult_index(l1, l2):
-    """Returns the product of each given index in two given numerical list, in one list."""s
+    """Returns the product of each given index in two given numerical list, in one list."""
     return list_combination(n.prod, l1, l2)
 
 # This function uses a higher order function
@@ -117,7 +113,6 @@ def list_one_by_one(func, l, n):
         for i in range(0, len(l)):
             newList.append(func(l[i], n))
         return newList
-
     except IndexError:
         return "IndexError"
 
@@ -156,7 +151,6 @@ def list_eq(l1, l2):
     for i in range(0, len(l1)):
         if l1[i] == l2[i]:
             pass
-
         else:
             return False
     return True
@@ -209,7 +203,6 @@ def some_even(l):
     for i in range(0, len(l)):
         if l[i] % 2 == 0:
             return True
-
         else:
             pass
     return False
@@ -231,7 +224,6 @@ def all_even(l):
     for i in range(0, len(l)):
         if l[i] % 2 == 0:
             pass
-
         else:
             return False
     return True
@@ -284,3 +276,24 @@ def append_lists(l1, l2):
 
     l1.sort()
     return l1
+
+# not working
+# fix
+def remove_smallest(l):
+    a = 0
+
+    for i in range(0, len(l)):
+        if l[i] < l[a]:
+            a += 1
+        else:
+            return 0
+    return l[i]
+
+def list_len(l):
+    """Counts the length of a given list."""
+    length, i = 0, 0
+
+    for i in l:
+        length += 1
+
+    return length
