@@ -131,12 +131,10 @@ def quadratic(a, b, c):
 
 def circle_area(radius):
     """Returns the area of a circle given it's radius."""
-
     return round(power(radius, 2) * PI, 2)
 
 def cylinder_volume(r, h):
     """Returns the volume of a cylinder given its radius (r) and height (h)."""
-
     return PI * (radius * radius) * h
 
 def is_even(n):
