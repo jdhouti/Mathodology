@@ -107,6 +107,7 @@ def list_distance_index(l1, l2):
 # This is a higher order function!
 # This will apply a certain math function to every element in a list.
 def list_one_by_one(func, l, n):
+    """This will apply a certain math function to every element in a list."""
     newList = []
 
     try:
@@ -279,15 +280,23 @@ def append_lists(l1, l2):
 
 # not working
 # fix
-def remove_smallest(l):
-    a = 0
+def find_smallest_element(l):
+    """Finds the smallest element in a given numerical list."""
+    smallest = l[0]
 
-    for i in range(0, len(l)):
-        if l[i] < l[a]:
-            a += 1
-        else:
-            return 0
-    return l[i]
+    for i in range(1, len(l)):
+        if l[i] < smallest:
+            smallest = a
+    return smallest
+
+def find_largest_element(l):
+    """Finds the largest element in a given numerical list."""
+    smallest = l[0]
+
+    for i in range(1, len(l)):
+        if l[i] > largest:
+            largest = l[i]
+    return largest
 
 def list_len(l):
     """Counts the length of a given list."""
@@ -295,5 +304,4 @@ def list_len(l):
 
     for i in l:
         length += 1
-
     return length
