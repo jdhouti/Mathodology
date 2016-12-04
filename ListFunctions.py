@@ -134,17 +134,6 @@ def list_dec(l, n):
 
 def list_eq(l1, l2):
     """Returns True if both given numerical lists are identical. False otherwise."""
-    ## Version 1.0
-    # k = 0
-    #
-    # while k < len(l1):
-    #     if l1[k] == l2[k]:
-    #         k += 1
-    #
-    #     else:
-    #         return False
-    # return True
-
     ## Version 2.0
     if len(l1) != len(l2):
         return False
@@ -158,19 +147,6 @@ def list_eq(l1, l2):
 
 def list_reverse(l):
     """This function returns the reverse of any given lists."""
-    ## Version 1.0
-    # i, tlist = -1, []
-    #
-    # try:
-    #     while i >= -1 * len(l):
-    #         tlist.append(l[i])
-    #         i -= 1
-    #
-    #     return tlist
-    #
-    # except IndexError:
-    #     return "Index Error!"
-
     ## Version 2.0
     newList = []
 
@@ -189,17 +165,6 @@ def list_range_by_to(start, dec, end):
 
 def some_even(l):
     """Checks if a numerical list contains any even numbers. Returns True if it does."""
-    ## Version 1.0
-    # c = 0
-    #
-    # while c < len(l):
-    #     if l[c] % 2 == 0:
-    #         return True
-    #
-    #     else:
-    #         c += 1
-    # return False
-
     ## Version 2.0
     for i in range(0, len(l)):
         if l[i] % 2 == 0:
@@ -210,17 +175,6 @@ def some_even(l):
 
 def all_even(l):
     """Checks if a numerical lists ONLY contains even numbers. Returns True if it does."""
-    ## Version 1.0
-    # c = 0
-    #
-    # while c < len(l):
-    #     if l[c] % 2 == 0:
-    #         c += 1
-    #
-    #     else:
-    #         return False
-    # return True
-
     ## Version 2.0
     for i in range(0, len(l)):
         if l[i] % 2 == 0:
@@ -242,18 +196,6 @@ def list_is_palindrome(l):
 # this is higher order function
 def list_convert(l1, func):
     """Applies a function to every element in a given numerical list."""
-    ## Version 1.0
-    # i, newList = 0, []
-    #
-    # try:
-    #     while i < len(l1):
-    #         newList.append(func(l1[i]))
-    #         i += 1
-    #     return newList
-    #
-    # except:
-    #     return "Given function cannot be applied to an integer!"
-
     ## Version 2.0
     newList = []
 
@@ -264,13 +206,6 @@ def list_convert(l1, func):
 def append_lists(l1, l2):
     """Appends a given numerical list to another numerical list."""
     """This function will not return a list within a list."""
-    ## Version 1.0
-    # i = 0
-    #
-    # while i != len(l2):
-    #     l1.append(l2[i])
-    #     i += 1
-
     ## Version 2.0
     for i in range(0, len(l2)):
         l1.append(l2[i])
