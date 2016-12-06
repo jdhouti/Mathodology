@@ -2,8 +2,6 @@
 A library of math modules that perform mathematical computations on lists and numbers using self developed algorithms.
 
 # Old Algorithms
-##### [function name] [version]
-===========
 ### list_eq(l1, l2) --version 1.0
 ```python
 k = 0
