@@ -213,16 +213,14 @@ def append_lists(l1, l2):
     l1.sort()
     return l1
 
-# not working
-# fix
-def find_smallest_element(l):
-    """Finds the smallest element in a given numerical list."""
-    smallest = l[0]
-
-    for i in range(1, len(l)):
-        if l[i] < smallest:
-            smallest = a
-    return smallest
+# def find_smallest_element(l):
+#     """Finds the smallest element in a given numerical list."""
+#     smallest = l[0]
+#
+#     for i in range(1, len(l)):
+#         if l[i] < smallest:
+#             smallest = a
+#     return smallest
 
 def find_largest_element(l):
     """Finds the largest element in a given numerical list."""
@@ -240,3 +238,12 @@ def list_len(l):
     for i in l:
         length += 1
     return length
+
+def list_element_count(l, a):
+    """Counts the amount of times a appears in a list."""
+    count = 0
+
+    for i in range(0, len(l)):
+        if l[i] == a:
+            count += 1
+    return count
