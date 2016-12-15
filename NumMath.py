@@ -65,7 +65,7 @@ def factorial(number):
     else:
         return number * (factorial(number - 1))
 
-def factorialTwo(x):
+def factorialv2(x):
     """A factorial function written a different way."""
     u = x - 1
 
