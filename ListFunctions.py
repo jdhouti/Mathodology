@@ -107,7 +107,7 @@ def list_distance_index(l1, l2):
 # This is a higher order function!
 # This will apply a certain math function to every element in a list.
 def list_one_by_one(func, l, n):
-    """This will apply a certain math function to every element in a list."""
+    """This will apply a function involving another number, to every number in a list."""
     newList = []
 
     try:
@@ -116,6 +116,16 @@ def list_one_by_one(func, l, n):
         return newList
     except IndexError:
         return "IndexError"
+
+# This is a higher order function!
+# It will apply the given "func" to every element in "l"!
+def list_func(func, l):
+    """This will apply a function to every element in a list."""
+    newList = []
+
+    for i in range(0, len(l)):
+        newList.append(func(l[i]))
+    return newList
 
 # Mutator method!
 def list_inc(l, n):
