@@ -4,6 +4,7 @@
 
 import math
 import time
+import ListFunctions as lf
 
 # not really a math function.
 def whichIsFaster(func1, func2):
@@ -171,5 +172,48 @@ def is_dec(n):
 
     else:
         return True
+
+def sqrt_proof(x):
+    """This function proves the exponential nature of the sqrt function.
+    It shows that no matter how big x is, the result will always be around 60."""
+    counter = 0
+
+    while x != 1:
+        x = math.sqrt(x)
+        counter += 1
+        print x
+
+    return counter
+
+def round_5(x):
+    return round(x, 5)
+
+def time_python():
+    """Times the time it takes for python to print every number from 1 to 10 million"""
+    record = 100
+    allDifferences = []
+
+    while 1:
+        counter = 0
+
+        start = time.time()
+        while counter < 10000000:
+            counter += 1
+            print counter
+        end = time.time()
+
+        difference = end - start
+        allDifferences.append(difference)
+
+        if difference < record:
+            record = difference
+            print "Record! --> %s" % record
+
+        c = raw_input("Restart >> press enter _\nQuit >> type q_ ")
+
+        if c.lower() == 'q':
+            break
+
+    return lf.list_func(round_5, allDifferences), lf.list_mean(allDifferences)
 
 PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640
