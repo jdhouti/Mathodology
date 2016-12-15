@@ -173,6 +173,17 @@ def is_dec(n):
     else:
         return True
 
+# # Not accurate + not stable
+# def my_sqrt(x):
+#     """This function will find the sqrt of a number."""
+#     match = 0
+#
+#     while abs(x - (match * match)) > 0.1:
+#         match += 0.01
+#         print match
+# 
+#     return match
+
 def sqrt_proof(x):
     """This function proves the exponential nature of the sqrt function.
     It shows that no matter how big x is, the result will always be around 60."""
