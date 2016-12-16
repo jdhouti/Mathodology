@@ -173,16 +173,10 @@ def is_dec(n):
     else:
         return True
 
-# # Not accurate + not stable
-# def my_sqrt(x):
-#     """This function will find the sqrt of a number."""
-#     match = 0
-#
-#     while abs(x - (match * match)) > 0.1:
-#         match += 0.01
-#         print match
-# 
-#     return match
+# Not accurate + not stable
+def my_sqrt(x):
+    """This function will find the sqrt of a number."""
+    return pow
 
 def sqrt_proof(x):
     """This function proves the exponential nature of the sqrt function.
@@ -201,20 +195,22 @@ def round_5(x):
 
 def time_python():
     """Times the time it takes for python to print every number from 1 to 10 million"""
-    record = 100
+    record, x = 100, 0
     allDifferences = []
 
-    while 1:
+    while x < 10:
         counter = 0
 
         start = time.time()
-        while counter < 10000000:
+        while counter < 1000000:
             counter += 1
             print counter
         end = time.time()
 
         difference = end - start
         allDifferences.append(difference)
+
+        x += 1
 
         if difference < record:
             record = difference
