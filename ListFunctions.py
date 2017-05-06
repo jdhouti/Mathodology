@@ -1,11 +1,11 @@
 # Julien Dhouti
 # Started: October 30, 2016
 # This script is a class of math functions applied to lists.
-
-import NumMath as n
 import BoolFunctions
 
 # Will return the median in a function.
+import NumMath
+
 def list_median(li):
     """Returns the median of a given numerical list."""
     li.sort()
@@ -46,7 +46,7 @@ def list_sum_square(li):
     newList = []
 
     for i in range(0, len(li)):
-        newList.append(myMath.power(li[i], 2))
+        newList.append(n.power(li[i], 2))
     return list_sum(newList)
 
 def list_square(li):
@@ -54,7 +54,7 @@ def list_square(li):
     newList = []
 
     for i in range(0, len(li)):
-        newList.append(myMath.power(li[i], 2))
+        newList.append(NumMath.power(li[i], 2))
     return newList
 
 def list_filter_even(li):
@@ -62,7 +62,7 @@ def list_filter_even(li):
     newList = []
 
     for i in range(0, len(li)):
-        if myMath.is_even(li[i]):
+        if NumMath.is_even(li[i]):
             newList.append(li[i])
     return newList
 
@@ -92,17 +92,17 @@ def list_combination(func, l1, l2):
 # This function uses a higher order function
 def list_mult_index(l1, l2):
     """Returns the product of each given index in two given numerical list, in one list."""
-    return list_combination(n.prod, l1, l2)
+    return list_combination(NumMath.prod, l1, l2)
 
 # This function uses a higher order function
 def list_sum_index(l1, l2):
     """Returns the sum of each given index in two given numerical list, in one list."""
-    return list_combination(n.sum, l1, l2)
+    return list_combination(NumMath.sum, l1, l2)
 
 # This function uses a higher order function
 def list_distance_index(l1, l2):
     """Returns the distance between each given index in two given numerical list, in one list."""
-    return list_combination(n.distance, l1, l2)
+    return list_combination(NumMath.distance, l1, l2)
 
 # This is a higher order function!
 # This will apply a certain math function to every element in a list.
@@ -141,6 +141,13 @@ def list_mult(l, n):
 def list_dec(l, n):
     """Deducts a given amount from every element in a list."""
     return list_one_by_one(n.sub, l, n)
+
+def check_sorted(l):
+    """Checks if a given list l is sorted."""
+    for i in range(0, len(l) - 1):
+        if l[i] > l[i+1]:
+            return False
+    return True
 
 def list_eq(l1, l2):
     """Returns True if both given numerical lists are identical. False otherwise."""
@@ -193,15 +200,15 @@ def all_even(l):
             return False
     return True
 
-def list_is_palindrome(l):
-    """Function that tests whether a given string or list (of any type) is a palindrome."""
-    if isinstance(l, basestring):       # simply converts a string into a list
-        l = list(l)
-
-    for i in range(0, ((len(l) - 1) / 2) + 1):
-        if l[i] != l[-(i + 1)]:
-            return False
-    return True
+# def list_is_palindrome(l):
+#     """Function that tests whether a given string or list (of any type) is a palindrome."""
+#     if isinstance(l, basestring):       # simply converts a string into a list
+#         l = list(l)
+#
+#     for i in range(0, ((len(l) - 1) / 2) + 1):
+#         if l[i] != l[-(i + 1)]:
+#             return False
+#     return True
 
 # this is higher order function
 def list_convert(l1, func):
@@ -222,15 +229,6 @@ def append_lists(l1, l2):
 
     l1.sort()
     return l1
-
-# def find_smallest_element(l):
-#     """Finds the smallest element in a given numerical list."""
-#     smallest = l[0]
-#
-#     for i in range(1, len(l)):
-#         if l[i] < smallest:
-#             smallest = a
-#     return smallest
 
 def find_largest_element(l):
     """Finds the largest element in a given numerical list."""
@@ -257,3 +255,8 @@ def list_element_count(l, a):
         if l[i] == a:
             count += 1
     return count
+
+
+myList_test = [1, 2, 3, 4, 5, 6, 6, 4]
+
+print(list_square(myList_test))

@@ -6,58 +6,6 @@ import math
 import time
 import ListFunctions as lf
 
-# not really a math function.
-def whichIsFaster(func1, func2):
-    z = 0
-    f1, f2 = 0, 0
-
-    while z < 101:
-        x, y = 0, 0
-        firstFuncT, secondFuncT = 0, 0
-
-        # calculate speed for first function
-        while x < 101:
-            start = time.time()
-            func1
-            end = time.time()
-
-            x += 1
-            firstFuncT += (end - start)
-
-        firstFuncT = firstFuncT / 100.0
-
-        #calculate the speed for the second function
-        while y < 101:
-            start = time.time()
-            func2
-            end = time.time()
-
-            y += 1
-            secondFuncT += (end - start)
-
-        secondFuncT = secondFuncT / 100.0
-
-        if firstFuncT < secondFuncT:
-            f1 += 1
-
-        elif secondFuncT < firstFuncT:
-            f2 += 1
-
-        else:
-            pass
-
-        z += 1
-
-    # determine which was faster
-    if distance(f1, f2) <= 15:
-        return "Both functions were equally fast.", "Speed >> " + str(firstFuncT)
-
-    elif f1 > f2:
-        return "First function was faster.", "Speed >> " + str(firstFuncT)
-
-    else:
-        return "Second function was faster.", "Speed >> " + str(secondFuncT)
-
 def factorial(number):
     """Finds the factorial of a given number."""
     if number == 0:
@@ -71,8 +19,8 @@ def factorialv2(x):
     u = x - 1
 
     while u != 0:
-    	x = x * u
-    	u -= 1
+        x = x * u
+        u -= 1
     return x
 
 def power(number, exponent):
@@ -89,16 +37,12 @@ def sum(n1, n2):
     return n1 + n2
 
 def sum_up_to(n):
+    """This is like factorial but for addition instead of multiplication"""
     if n == 0:
         return 0
 
     else:
         return n + sum_up_to(n)
-
-def prod(n1, n2):
-    """Returns the product of two given numbers."""
-
-    return n1 * n2
 
 def absv(n):
     """Returns the absolute value of a given number."""
@@ -136,7 +80,7 @@ def circle_area(radius):
 
 def cylinder_volume(r, h):
     """Returns the volume of a cylinder given its radius (r) and height (h)."""
-    return PI * (radius * radius) * h
+    return PI * (r * r) * h
 
 def is_even(n):
     """Returns True if a given integer is even, returns False otherwise."""
@@ -176,7 +120,7 @@ def is_dec(n):
 # Not accurate + not stable
 def my_sqrt(x):
     """This function will find the sqrt of a number."""
-    return pow
+    return pow(x, 0.5)
 
 def sqrt_proof(x):
     """This function proves the exponential nature of the sqrt function.
@@ -186,41 +130,12 @@ def sqrt_proof(x):
     while x != 1:
         x = math.sqrt(x)
         counter += 1
-        print x
+        print(x)
 
     return counter
 
 def round_5(x):
     return round(x, 5)
 
-def time_python():
-    """Times the time it takes for python to print every number from 1 to 10 million"""
-    record, x = 100, 0
-    allDifferences = []
-
-    while x < 10:
-        counter = 0
-
-        start = time.time()
-        while counter < 1000000:
-            counter += 1
-            print counter
-        end = time.time()
-
-        difference = end - start
-        allDifferences.append(difference)
-
-        x += 1
-
-        if difference < record:
-            record = difference
-            print "Record! --> %s" % record
-
-        c = raw_input("Restart >> press enter _\nQuit >> type q_ ")
-
-        if c.lower() == 'q':
-            break
-
-    return lf.list_func(round_5, allDifferences), lf.list_mean(allDifferences)
-
+# CONSTANTS
 PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640

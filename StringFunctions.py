@@ -79,23 +79,33 @@ def backspace(data):
     string = str(string)
     return string
 
-# def alt_backspace(phrase):
-#     """By pressing the alt button plus the backspace, it deletes entire words
-#     at a time."""
-#     string = list(string)
-#
-#     # first develop a function that can identify the last word of a phrase
-#     #---
-#
-#     # return the new string by making sure the previously used method was a
-#     # mutator method.
-#     #---
+def alt_backspace(phrase):
+    """By pressing the alt button plus the backspace, it deletes entire words
+    at a time."""
+    phraseList = phrase.split()
+    phraseList.pop()
+
+    return ' '.join(phraseList)
 
 def check_double(phrase):
     """This method will check if a given phrase has any words that are repeated
     when written side by side."""
+    # conver the given phrase into a list
+    phraseList = phrase.split()
+    doubleWords = []
 
-    # code
+    for i in range(1, len(phraseList)):
+        if phraseList[i].lower() == phraseList[i - 1].lower():
+            doubleWords.append(phraseList[i])
+
+    return doubleWords # returns a list of all of the words that are double
+
+def is_word_double(word, phrase):
+    """This method will check if a specific word is a double in a given sentence"""
+    if word in check_double(phrase):
+        return True
+    else:
+        return False
 
 # tell script which chars are vowels
 vowels = ['a', 'e', 'i', 'o', 'u']
@@ -103,6 +113,3 @@ vowels = ['a', 'e', 'i', 'o', 'u']
 # tell script what the letters of the alphabet are
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
            'o', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-print "Original"
-print backspace("Original")
