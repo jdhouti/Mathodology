@@ -18,12 +18,12 @@ def list_median(li):
         answer = li[:(len(li) / 2) + 1]
         return answer[-1]
 
-def list_sum(li, n = 0):
+def list_sum(li):
     """Return the sum of all elements in a given numerical list."""
-    if n == len(li) - 1:
-        return li[n]
-    else:
-        return li[n] + list_sum(li, n + 1)
+    total = 0
+    for ele in li:
+        total += ele
+    return total
 
 def list_mean(li):
     """Returns the mean of all of the elements in a given numerical list."""
@@ -31,63 +31,53 @@ def list_mean(li):
 
 def list_range(li):
     """Returns the range of a given numerical list."""
-    li.sort() # this is mutation
+    li.sort()
     return abs(li[-1] - li[0])
 
-def list_prod(li, n = 0):
-    """Returns the product of every element in a given numerical list."""
-    if n == len(li) - 1:
-        return li[n]
-    else:
-        return li[n] * list_prod(li, n + 1)
+def list_prod(li):
+    """Returns the total product of every element in a given numerical list."""
+    total = 0
+    for ele in li:
+        total *= ele
+    return total
 
 def list_sum_square(li):
     """Returns the sum of all of the values in a given numerical list, squared."""
     newList = []
-
-    for i in range(0, len(li)):
-        newList.append(n.power(li[i], 2))
+    for i in li:
+        newList.append(i**2)
     return list_sum(newList)
 
 def list_square(li):
     """Returns a list of all of the values from a given numerical list, squared."""
     newList = []
-
-    for i in range(0, len(li)):
-        newList.append(NumMath.power(li[i], 2))
+    for i in li:
+        newList.append(i**2)
     return newList
 
 def list_filter_even(li):
     """Returns only the even integers of a given numerical list."""
     newList = []
-
-    for i in range(0, len(li)):
-        if NumMath.is_even(li[i]):
+    for i in li:
+        if i % 2 == 0:
             newList.append(li[i])
     return newList
 
-def list_filter_True(li):
+def list_filter_True(bool_list):
     """Returns only the true booleans in a given boolean list."""
     newList = []
-
-    for i in range(0, len(li)):
-        if BoolFunctions.is_true(li[i]):
-            newList.append(li[i])
+    for boolean in bool_list:
+        if boolean:
+            newList.append(boolean)
     return newList
 
 # This is a higher order function
 # This will combine two different lists given a basic numerical function
 def list_combination(func, l1, l2):
     newList = []
-    c = 0
-
-    try:
-        for i in range(0, len(l1)):
-            newList.append(func(l1[i], l2[c]))
-            c += 1
-        return newList
-    except IndexError:
-        return "IndexError"
+    for i, j in l1, l2:
+        newList.append(func(i, j))
+    return newList
 
 # This function uses a higher order function
 def list_mult_index(l1, l2):
@@ -105,42 +95,28 @@ def list_distance_index(l1, l2):
     return list_combination(NumMath.distance, l1, l2)
 
 # This is a higher order function!
-# This will apply a certain math function to every element in a list.
-def list_one_by_one(func, l, n):
-    """This will apply a function involving another number, to every number in a list."""
-    newList = []
-
-    try:
-        for i in range(0, len(l)):
-            newList.append(func(l[i], n))
-        return newList
-    except IndexError:
-        return "IndexError"
-
-# This is a higher order function!
 # It will apply the given "func" to every element in "l"!
-def list_func(func, l):
+def list_func(func, li):
     """This will apply a function to every element in a list."""
     newList = []
-
-    for i in range(0, len(l)):
-        newList.append(func(l[i]))
+    for i in li:
+        newList.append(func(i))
     return newList
 
-# Mutator method!
-def list_inc(l, n):
-    """Increments every element in a list by a given number."""
-    return list_one_by_one(n.sum, l, n)
-
-# Mutator method!
-def list_mult(l, n):
-    """Multiplies every element in a given numerical list by a given number."""
-    return list_one_by_one(n.prod, l, n)
-
-# Mutator method!
-def list_dec(l, n):
-    """Deducts a given amount from every element in a list."""
-    return list_one_by_one(n.sub, l, n)
+# # Mutator method!
+# def list_inc(l, n):
+#     """Increments every element in a list by a given number."""
+#     return list_one_by_one(n.sum, l, n)
+#
+# # Mutator method!
+# def list_mult(l, n):
+#     """Multiplies every element in a given numerical list by a given number."""
+#     return list_one_by_one(n.prod, l, n)
+#
+# # Mutator method!
+# def list_dec(l, n):
+#     """Deducts a given amount from every element in a list."""
+#     return list_one_by_one(n.sub, l, n)
 
 def check_sorted(l):
     """Checks if a given list l is sorted."""
